@@ -57,6 +57,15 @@ public class ArrayHeapMinPQTest {
         }
     }
 
+    @Test
+    public void testContains() {
+        ExtrinsicMinPQ<String> pq = new ArrayHeapMinPQ<>();
+        pq.add("a", 1);
+        assertTrue(pq.contains("a"));
+        pq.removeSmallest();
+        assertTrue(!pq.contains("a"));
+    }
+
     /*
     // private testing
     @Test

@@ -104,6 +104,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
 
     @Override
     public boolean contains(T item) {
+        if (count == 0) return false;
         for (int i = 1; i <= count; i++) {
             T curr = minHeap.get(i).getItem();
             if (curr.equals(item)) return true;
@@ -119,9 +120,14 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
 
     @Override
     public T removeSmallest() {
-        Node temp = minHeap.remove(count);
-        count -= 1;
+        if (count == 1) {
+            count -= 1;
+            return minHeap.remove(1).getItem();
+        }
+        Node temp = minHeap.get(count);
         T out = minHeap.set(1, temp).getItem();
+        minHeap.remove(count);
+        count -= 1;
         sink(1);
         return out;
     }
