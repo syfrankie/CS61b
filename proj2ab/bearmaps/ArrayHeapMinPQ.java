@@ -139,7 +139,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T>{
 
     @Override
     public void changePriority(T item, double priority) {
-        for (int i = 0; i <= count; i++) {
+        for (int i = 1; i <= count; i++) {
             Node curr = minHeap.get(i);
             if (curr.getItem().equals(item)) {
                 double temp = curr.getPriority();
