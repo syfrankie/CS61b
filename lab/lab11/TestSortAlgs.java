@@ -1,17 +1,28 @@
 import edu.princeton.cs.algs4.Queue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestSortAlgs {
 
     @Test
     public void testQuickSort() {
-
+        Queue<String> queue = new Queue<>();
+        String[] temp = new String[]{"apple", "pig", "water", "milk", "dog", "clock", "cup"};
+        for (int i = 0; i < temp.length; i++) {
+            queue.enqueue(temp[i]);
+        }
+        assertTrue(isSorted(QuickSort.quickSort(queue)));
     }
 
     @Test
     public void testMergeSort() {
-
+        Queue<String> queue = new Queue<>();
+        String[] temp = new String[]{"apple", "pig", "water", "milk", "dog", "clock", "cup"};
+        for (int i = 0; i < temp.length; i++) {
+            queue.enqueue(temp[i]);
+        }
+        assertTrue(isSorted(MergeSort.mergeSort(queue)));
     }
 
     /**
